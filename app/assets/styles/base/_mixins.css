@@ -1,5 +1,1 @@
-@mixin atSmall {
-  @media (min-width: 530px) {
-    @content;
-  }
-}
+@custom-media --small-viewport (min-width: 530px);

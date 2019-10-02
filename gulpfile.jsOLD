@@ -5,7 +5,7 @@ cssvars = require('postcss-simple-vars'),
 nested = require('postcss-nested'),
 cssImport = require('postcss-import'),
 syntax = require('postcss-syntax'),
-mixins = require('postcss-mixins'),
+mixins = require('postcss-custom-media'),
 browserSync = require('browser-sync').create();
 
 

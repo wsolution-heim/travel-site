@@ -460,12 +460,6 @@ img {
 	height: auto;
 }
 
-@mixin atSmall {
-  @media (min-width: 530px) {
-    @content;
-  }
-}
-
 .large-hero {
 	position: relative;
 }
@@ -483,14 +477,16 @@ img {
 .large-hero__title {
 		font-weight: 300;
 		color: #2f5572;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		margin: 0;
-		
-		@include atSmall {
-      		font-size: 2rem;
-    	}
-		
 	}
+
+@media (min-width: 530px) {
+
+.large-hero__title {
+			font-size: 5rem
+	}
+		}
 
 .large-hero__subtitle {
 		font-weight: 300;

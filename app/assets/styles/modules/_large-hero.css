@@ -13,13 +13,12 @@
 	&__title {
 		font-weight: 300;
 		color: $mainBlue;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		margin: 0;
-		
-		@include atSmall {
-      		font-size: 2rem;
-    	}
-		
+
+		@media (--small-viewport) {
+			font-size: 5rem;
+		}
 	}
 
 	&__subtitle {
