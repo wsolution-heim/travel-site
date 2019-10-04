@@ -1,0 +1,44 @@
+.headline {
+	font-weight: 300;
+	font-size: 1.9rem;
+	color: $mainBlue;
+
+	@media (--small-viewport) {
+		font-size: 2.875rem;
+	}
+
+	&--centered {
+		text-align: center;
+	}
+
+	&--orange {
+		color: $mainOrange;
+	}
+
+	&--small {
+		font-size: 1.3rem;
+
+		@media (--small-viewport) {
+			font-size: 1.875rem;
+		}
+	}
+
+	&--narrow {
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--light {
+		font-weight: 100;
+	}
+
+	&--b-margin-light {
+		margin-bottom: .5em;
+	}
+
+	&--b-margin-large {
+		margin-bottom: 1.6em;
+	}
+
+}
