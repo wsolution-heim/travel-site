@@ -1,0 +1,48 @@
+.row {
+
+	clear: fix;
+	
+	@media (--medium-viewport) {	
+		&--gutters {
+					/* damit rechts beim letzten column nicht die 65px vergeudet werden*/
+					padding-right: -65px;
+				}
+					
+				/* betrifft alle kinder von row - alle divs unter row */
+				&--gutters > div {
+					padding-right: 65px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+			
+			
+				&__medium-4 {
+					float: left;
+					width: 33.33%;
+				}
+
+				&__medium-4--larger {
+					width: 37%;
+				}
+
+				
+				&__medium-8 {
+					float: left;
+					width: 66.66%;
+				}
+
+				&__medium-8--smaller {
+					width: 63%;
+				}
+
+	}
+	
+
+	&__b-margin-until-medium {
+			margin-bottom: 1rem;
+			@media (--medium-viewport) {
+				margin-bottom: 0;
+			}
+	}
+		
+}
+

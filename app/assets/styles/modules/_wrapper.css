@@ -1,7 +1,11 @@
 .wrapper {
+	/* blendet alles aus was üeber die breite rausgeht */
+	overflow: hidden;
 	padding-left: 18px;
 	padding-right: 18px;
-	max-width: 1200px;
+	/*max-width: 1200px;*/
+	/* durch das globale border-boxing wird das gesamtlayout um padding left + right verschmälert*/
+	max-width: 1236px;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -13,5 +17,13 @@
 	.wrapper {
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	&--b-margin {
+		margin-bottom: 1.0rem;
+
+		@media (--small-viewport) {
+		margin-bottom: 3.875rem;
+		}
 	}
 }

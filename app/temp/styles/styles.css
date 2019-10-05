@@ -460,6 +460,16 @@ img {
 	height: auto;
 }
 
+* {
+	/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+a {
+	color: #d59541;
+}
+
 .large-hero {
 	position: relative;
 	border-bottom: 10px solid #2f5572;
@@ -550,9 +560,13 @@ img {
 		}
 
 .wrapper {
+	/* blendet alles aus was üeber die breite rausgeht */
+	overflow: hidden;
 	padding-left: 18px;
 	padding-right: 18px;
-	max-width: 1200px;
+	/*max-width: 1200px;*/
+	/* durch das globale border-boxing wird das gesamtlayout um padding left + right verschmälert*/
+	max-width: 1236px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -567,6 +581,17 @@ img {
 		padding-left: 0;
 		padding-right: 0;
 	}
+
+.wrapper--b-margin {
+		margin-bottom: 1.0rem;
+	}
+
+@media (min-width: 530px) {
+
+.wrapper--b-margin {
+		margin-bottom: 3.875rem
+	}
+		}
 
 .page-section {
 	padding: 1.2rem 0;
@@ -638,6 +663,77 @@ img {
 
 .headline--b-margin-large {
 		margin-bottom: 1.6em;
+	}
+
+.headline--no-t-margin {
+		margin-top: 0;
+	}
+
+.row:after { content: " "; display: table; clear: both }
+
+@media (min-width: 800px) {
+
+.row {
+					
+				/* betrifft alle kinder von row - alle divs unter row */
+		
+}	
+		.row--gutters {
+					/* damit rechts beim letzten column nicht die 65px vergeudet werden*/
+					padding-right: -65px;
+				}
+				.row--gutters > div {
+					padding-right: 65px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+			
+			
+				.row__medium-4 {
+					float: left;
+					width: 33.33%;
+				}
+
+				.row__medium-4--larger {
+					width: 37%;
+				}
+
+				
+				.row__medium-8 {
+					float: left;
+					width: 66.66%;
+				}
+
+				.row__medium-8--smaller {
+					width: 63%;
+				}
+
+	}
+
+.row__b-margin-until-medium {
+			margin-bottom: 1rem;
+	}
+
+@media (min-width: 800px) {
+
+.row__b-margin-until-medium {
+				margin-bottom: 0
+	}
+			}
+
+.generic-content-container p {
+		line-height: 1.65;
+		margin: 1.8rem 0;
+	}
+
+@media (min-width: 530px) {
+
+.generic-content-container p {
+			font-size: 1.12rem
+	}
+		}
+
+.generic-content-container p a {
+		font-weight: 700;
 	}
 
 

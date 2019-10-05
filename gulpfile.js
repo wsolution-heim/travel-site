@@ -6,6 +6,7 @@ mixins = require('postcss-custom-media'),
 nested = require('postcss-nested'),
 cssImport = require('postcss-import'),
 syntax = require('postcss-syntax'),
+clearfix = require('postcss-clear-fix'),
 browserSync = require('browser-sync').create();
  
 // Refresh HTML file:
@@ -18,7 +19,7 @@ function style() {
 	// 1. Where is my css file:
 	return gulp.src('./app/assets/styles/styles.css')
 	// 2. Pass that file through sass compiler
-		.pipe(postcss([cssImport, cssvars, mixins, nested, autoprefixer]))
+		.pipe(postcss([cssImport, cssvars, mixins, nested, autoprefixer, clearfix]))
 	// 3. Where do I save the compiled CSS?
 		.pipe(gulp.dest('./app/temp/styles'))
 	// 4. Stream changes to all browser:

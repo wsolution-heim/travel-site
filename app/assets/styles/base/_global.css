@@ -7,3 +7,12 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+* {
+	/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+	box-sizing: border-box;
+}
+
+a {
+	color: $mainOrange;
+}
