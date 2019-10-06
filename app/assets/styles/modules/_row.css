@@ -12,7 +12,10 @@
 					margin-right: -100px;
 				}
 
-				
+				&--gutters-small{
+					margin-right: -45px;
+				}
+	
 					
 				/* betrifft alle kinder von row - alle divs unter row */
 				&--gutters > div {
@@ -25,8 +28,18 @@
 					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
 				}
 
+				&--gutters-small > div {
+					padding-right: 45px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+
 			
 			@media (--medium-viewport) {
+
+				&__b-margin-until-medium {
+				margin-bottom: 0;
+				}
+
 				&__medium-4 {
 					float: left;
 					width: 33.33%;
@@ -51,14 +64,70 @@
 				}
 
 			}
+
+			@media (--large-viewport) {
+				
+				&__b-margin-until-large {
+				margin-bottom: 0;
+				}
+
+				&__large-4 {
+					float: left;
+					width: 33.33%;
+				}
+
+				&__large-4--larger {
+					width: 37%;
+				}
+
+				&__large-6 {
+					float: left;
+					width: 50%;
+				}
+				
+				&__large-8 {
+					float: left;
+					width: 66.66%;
+				}
+
+				&__large-8--smaller {
+					width: 63%;
+				}
+
+			}
 	
 
-	&__b-margin-until-medium {
-			margin-bottom: 1rem;
-			@media (--medium-viewport) {
-				margin-bottom: 0;
-			}
+	
+
+
+
+	&--t-padding {
+		padding-top: 80px;
 	}
 		
+	
+	/* Begin Equal Height Rules */
+	&--equal-height-at-medium {
+		@media (--medium-viewport) {
+			display: flex;
+		}
+
+		& > div {
+			float: none;
+			display: flex;
+		}
+	}
+
+	/* Begin Equal Height Rules */
+	&--equal-height-at-large {
+		@media (--large-viewport) {
+			display: flex;
+		}
+
+		& > div {
+			float: none;
+			display: flex;
+		}
+	}
 }
 
