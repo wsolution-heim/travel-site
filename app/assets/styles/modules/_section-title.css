@@ -1,0 +1,30 @@
+.section-title {
+	font-size: 2.55rem;
+	font-weight: 300;
+	text-align: center;
+
+	@media (--small-viewport) {
+		font-size: 3.75rem;
+	}
+
+		strong {
+		font-weight: 500;
+	}
+
+	&__icon {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0.6rem;
+
+		@media (--small-viewport) {
+			margin-right: .5rem;
+			margin-left: 0;
+			/* vehindert dass der text in eine neue Zeile geschrieben wird */
+			display: inline-block;
+			margin-bottom: 0;
+		}
+	}
+
+
+}
