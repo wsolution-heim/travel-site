@@ -9,7 +9,8 @@ syntax = require('postcss-syntax'),
 clearfix = require('postcss-clear-fix'),
 autoprefixer = require('autoprefixer'),
 svgSprite = require('gulp-svg-sprite'),
-browserSync = require('browser-sync').create();
+browserSync = require('browser-sync').create(),
+del = require('del');
 
 
 // require('./gulp/tasks/styles');
@@ -64,6 +65,11 @@ var config = {
 }
 
 
+function beginClean() {
+  return del(['./app/temp/sprite/', './app/assets/images/sprites']); 
+};
+
+
 function createSprite() {
   return gulp.src('./app/assets/images/icons/**/*')
    .pipe(svgSprite(config))
@@ -84,9 +90,12 @@ function copySpriteCSS() {
   
 };
 
+function endClean() {
+	return del('./app/temp/sprite');
+};
 
 function icons(done)   {
-  return gulp.series('createSprite', 'copySpriteGraphic', 'copySpriteCSS',
+  return gulp.series('beginClean', 'createSprite', 'copySpriteGraphic', 'copySpriteCSS', 'endClean',
     (seriesDone) => {
         seriesDone();
         done();
@@ -96,9 +105,11 @@ function icons(done)   {
 
 gulp.task("styles", styles);
 gulp.task("watch", watch);
+gulp.task("beginClean", beginClean);
 gulp.task("createSprite",createSprite);
 gulp.task("copySpriteGraphic",copySpriteGraphic);
 gulp.task("copySpriteCSS",copySpriteCSS);
+gulp.task("endClean",endClean);
 gulp.task("icons",icons);
 
 // gulp.task("default", gulp.series(watch, icons));
