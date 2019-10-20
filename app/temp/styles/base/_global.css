@@ -1,5 +1,3 @@
-$mainOrange: #d59541;
-
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
@@ -16,5 +14,5 @@ img {
 }
 
 a {
-	color: $mainOrange;
+	color: #d59541;
 }

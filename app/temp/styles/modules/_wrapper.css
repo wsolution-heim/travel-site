@@ -1,0 +1,59 @@
+.wrapper {
+	/* blendet alles aus was üeber die breite rausgeht */
+	overflow: hidden;
+	padding-left: 18px;
+	padding-right: 18px;
+	/*max-width: 1200px;*/
+	/* durch das globale border-boxing wird das gesamtlayout um padding left + right verschmälert*/
+	max-width: 1236px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	.wrapper--medium {
+		max-width: 976px;
+	}
+
+	/* wenn ein wrapper in einen anderen wrapper greift --> padding aufheben */
+
+	.wrapper .wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.wrapper--b-margin {
+		margin-bottom: 1.0rem;
+	}
+
+	@media (min-width: 530px) {
+
+	.wrapper--b-margin {
+		margin-bottom: 3.875rem
+	}
+		}
+
+	.wrapper--no-padding-until-medium {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@media (min-width: 800px) {
+
+	.wrapper--no-padding-until-medium {
+			padding-left: 18px;
+			padding-right: 18px
+	}
+		}
+
+	.wrapper--no-padding-until-large {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@media (min-width: 1010px) {
+
+	.wrapper--no-padding-until-large {
+			padding-left: 18px;
+			padding-right: 18px
+	}
+		}

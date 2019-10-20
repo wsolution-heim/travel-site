@@ -1,0 +1,147 @@
+.row {
+
+	clear: fix;
+}
+	
+		
+				.row--gutters {
+					/* damit rechts beim letzten column nicht die 65px vergeudet werden*/
+					margin-right: -65px;
+				}
+	
+		
+				.row--gutters-large {
+					margin-right: -100px;
+				}
+	
+		
+				.row--gutters-small{
+					margin-right: -45px;
+				}
+	
+		
+				/* betrifft alle kinder von row - alle divs unter row */
+	
+		
+				.row--gutters > div {
+					padding-right: 65px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+	
+		
+				.row--gutters-large > div {
+					padding-right: 100px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+	
+		
+				.row--gutters-small > div {
+					padding-right: 45px;
+					/* box sizing: border-box bewirkt dass das Padding innerhalb der spaltenbreite angewandt wird*/
+				}
+	
+		
+				@media (min-width: 800px) {
+
+				.row__b-margin-until-medium {
+				margin-bottom: 0;
+				}
+
+				.row__medium-4 {
+					float: left;
+					width: 33.33%;
+				}
+
+				.row__medium-4--larger {
+					width: 37%;
+				}
+
+				.row__medium-6 {
+					float: left;
+					width: 50%;
+				}
+				
+				.row__medium-8 {
+					float: left;
+					width: 66.66%;
+				}
+
+				.row__medium-8--smaller {
+					width: 63%;
+				}
+
+			}
+	
+		
+				@media (min-width: 1010px) {
+				
+				.row__b-margin-until-large {
+				margin-bottom: 0;
+				}
+
+				.row__large-4 {
+					float: left;
+					width: 33.33%;
+				}
+
+				.row__large-4--larger {
+					width: 37%;
+				}
+
+				.row__large-6 {
+					float: left;
+					width: 50%;
+				}
+				
+				.row__large-8 {
+					float: left;
+					width: 66.66%;
+				}
+
+				.row__large-8--smaller {
+					width: 63%;
+				}
+
+			}
+	
+		
+				.row--t-padding {
+		padding-top: 80px;
+	}
+	
+		
+				/* Begin Equal Height Rules */
+	
+		
+				@media (min-width: 800px) {
+	
+		
+				.row--equal-height-at-medium {
+			display: flex
+	}
+		}
+	
+		
+				.row--equal-height-at-medium > div {
+			float: none;
+			display: flex;
+		}
+	
+		
+				/* Begin Equal Height Rules */
+	
+		
+				@media (min-width: 1010px) {
+	
+		
+				.row--equal-height-at-large {
+			display: flex
+	}
+		}
+	
+		
+				.row--equal-height-at-large > div {
+			float: none;
+			display: flex;
+		}
+

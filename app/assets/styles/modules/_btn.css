@@ -1,3 +1,6 @@
+$mainBlue: #2f5572;
+$mainOrange: #d59541;
+
 .btn {
 	background-color: $mainBlue;
 	color: #fff;

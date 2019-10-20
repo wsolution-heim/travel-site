@@ -1,11 +1,12 @@
-const gulp = require('gulp');
+const gulp = require('gulp'),
 rename = require('gulp-rename'),
 postcss = require('gulp-postcss'),
 cssvars = require('postcss-simple-vars'),
 mixins = require('postcss-custom-media'),
-nested = require('postcss-nested'),
 cssImport = require('postcss-import'),
+nested = require('postcss-nested'),
 syntax = require('postcss-syntax'),
+hexrgba = require('postcss-hexrgba'),
 clearfix = require('postcss-clear-fix'),
 autoprefixer = require('autoprefixer'),
 svgSprite = require('gulp-svg-sprite'),
@@ -23,7 +24,7 @@ function styles() {
 	// 1. Find my css file
 	return gulp.src('./app/assets/styles/**/*.css')
 	// 2. pass the file thru the compiler
-	.pipe( postcss ([ cssImport ,  mixins ,  cssvars ,  nested ,  autoprefixer ]))
+	.pipe( postcss ([cssImport ,  mixins ,  cssvars ,  nested , hexrgba, autoprefixer ]))
 	.on('error', function(errorInfo) {
       console.log(errorInfo.toString());
       this.emit('end');
