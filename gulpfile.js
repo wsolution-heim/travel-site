@@ -11,7 +11,8 @@ clearfix = require('postcss-clear-fix'),
 autoprefixer = require('autoprefixer'),
 svgSprite = require('gulp-svg-sprite'),
 browserSync = require('browser-sync').create(),
-del = require('del');
+del = require('del'),
+webpack = require('webpack');
 
 
 // require('./gulp/tasks/styles');
@@ -37,6 +38,19 @@ function styles() {
 }
 
 
+function scripts(callback) {
+	webpack(require('./webpack.config.js'), function(err, stats) {
+		if (err)
+			 {
+			 	console.log(err.toString());
+			 }		
+		console.log(stats.toString());
+		callback();
+	});
+};
+
+
+
 // Watcher:
 function watch(done) {
 	notify: false;
@@ -46,8 +60,10 @@ function watch(done) {
 		}
 	});
 	gulp.watch('./app/assets/styles/**/*.css', styles);
+	gulp.watch('./app/assets/scripts/**/*.js', scripts);
 	gulp.watch('./app/**/*.html').on('change', browserSync.reload);
 	gulp.watch('./app/assets/js/**/*.js').on('change', browserSync.reload);
+	gulp.watch('./app/assets/scripts/**/*.js').on('change', browserSync.reload);
 done();
 };
 
@@ -104,6 +120,10 @@ function icons(done)   {
       ) ()
   };
 
+
+
+
+
 gulp.task("styles", styles);
 gulp.task("watch", watch);
 gulp.task("beginClean", beginClean);
@@ -112,6 +132,8 @@ gulp.task("copySpriteGraphic",copySpriteGraphic);
 gulp.task("copySpriteCSS",copySpriteCSS);
 gulp.task("endClean",endClean);
 gulp.task("icons",icons);
+gulp.task("scripts",scripts);
+
 
 // gulp.task("default", gulp.series(watch, icons));
 gulp.task("default", watch);
