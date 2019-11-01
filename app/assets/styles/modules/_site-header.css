@@ -4,17 +4,25 @@ $mainOrange: #d59541;
 .site-header {
 	/* damit überlappen das Menu und das Header bild */
 	position: absolute; 
-	z-index: 2;
-	
+	z-index: 2;	
 	width: 100%;
 	padding: 10px 0;
-		
+	/* Bei wechseln der Hintergrundfarbe soll ein fade-out erfolgen */
+	transition: background-color .3s ease-out;		
+	
+	&--is-expanded {
+		background-color: rgba($mainBlue, .55);
+	}
+
 		@media (--medium-viewport) {
 		background-color: rgba($mainBlue, .3);
 		}
 
+
 	&__btn-container {
-		float: right;
+		@media (--medium-viewport) { 
+			float: right;
+		}
 	}
 
 	&__logo {
@@ -42,25 +50,97 @@ $mainOrange: #d59541;
 
 	&__menu-icon {
 
-		width: 20px;
-		height: 20px;
-		background-color: white;
+		width: 25px;
+		height: 25px;
 		position: absolute;
+		/* braucht nen höheren z-index damit das icon über dem overlay ist*/
+		z-index: 10;
 		top: 10px;
 		right: 10px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 25px;
+			height: 3px;
+			background-color: #fff;
+			/* damit der strich zum einen Teil von x wird */
+			transform-origin: 0 0;
+			transition: transform .3s ease-out;
+		}
+
+		&__middle {
+			position: absolute;
+			top:11px;
+			left: 0;
+			width: 25px;
+			height: 3px;
+			background-color: #fff;
+			transition: all .3s ease-out;
+			transform-origin: 0 50%;
+		}
+
+		&::after  {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 25px;
+			height: 3px;
+			background-color: #fff;
+			/* damit der strich zum einen Teil von x wird */
+			transform-origin: 0 100%;
+			transition: transform .3s ease-out;
+		}
 
 		@media (--medium-viewport) {
 			display: none;
 		}
 	}
 
-	&__menu-content {
-		display: none;
+	&__menu-icon--close-x {
+		&::before {
+			transform: rotate(45deg) scaleX(1.25);
+		}
 
-		@media (--medium-viewport) {
-			display: block;
+		.site-header__menu-icon__middle {
+			opacity: 0;
+			transform: scaleX(0);
+		}
+
+		&::after {
+			transform: rotate(-45deg) scaleX(1.25) translateY(-1px);
 		}
 	}
 
+	&__menu-content {
+		/* anstelle von display:none setzen wir sichtbarkeit auf 0 */
+		opacity: 0;
+		/* Zoom-In Effekt */
+		transform: scale(1.2);
+		transition: all .3s ease-out;
+		/* damit z-index gesetzt werden kann */
+		position: relative;
+		/* damit der link nicht geklickt werden kann wenn unsichtbar */
+		z-index: -10;
+		padding-top: 90px;
+		text-align: center;
 
+		@media (--medium-viewport) {
+			opacity: 1;
+			z-index: 1;
+			padding-top: 0;
+			transform: scale(1);
+		}
+	
+		&--is-visible {
+			/*a nstelle display block setzen wir ein fade in */
+			opacity: 1;
+			z-index: 1;
+			/* Zoom-In Effekt auf normalgröße zurück*/
+			transform: scale(1);
+		}		
+	}
 }
