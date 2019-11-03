@@ -1,0 +1,30 @@
+$mainOrange: #d59541;
+
+.social-icons {
+	text-align: center;
+
+	&__icon {
+		background-color: $mainOrange;
+		display: inline-block;
+		margin: 0 5px 5px 5px;
+		width: 33%;
+		height: 72px;
+		position: relative;
+
+		@media (--small-viewport) {
+			width: 72px;
+			margin: 0 5px;
+		}
+
+		/* mit display: block werden alle Elemente in einer Reihe aufgelistet, mit display: inline-block kann jemdem Element eine eigene Hoehe gegeben werden */
+		.icon {
+			display: block;
+			/* wenn dieser block position absolute hat, muss das Elternteil relative haben */
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/* transform translate() == für die position - 50% der eigenen höhe und breite*/
+			transform: translate(-50%, -50%);
+		}
+	}
+}

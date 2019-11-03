@@ -1,0 +1,54 @@
+.modal {
+	position: fixed;
+	z-index: 5;
+	background-color: rgba(255,255,255, .94);
+	/* FullScreen Damit das Fenster über die ganze hoehe und breite geht */
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/* Overlay verbergen mit opacity=0 und visibility: hidden damit die Links auch weg sind*/
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(1.2);
+	transition: all 0.3s ease-out;
+}
+
+	.modal--is-visible {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
+
+	.modal__inner {
+		/* elemente mit position absolute verkleinern ihre Breite deshalb width angeben*/
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		/* translateY nur vertikale positon */
+		transform: translateY(-50%);
+	}
+
+	.modal__description {
+		text-align: center;
+		font-size: 1.3 rem;
+		font-weight: 300;
+		line-height: 1.65;
+	}
+
+	.modal__close {
+		position: absolute;
+		top:15px;
+		right: 15px;
+		font-size: 2rem;
+		/* scaleX erweitert nur die horizontale Hoehe*/
+		transform: scaleX(1.2);
+		/* Ausrichtung der Erweiterung nach links*/
+		transform-origin: 100% 0;
+		color: #2f5572;
+		cursor: pointer;
+	}
+
+	.modal__close:hover {
+			color: #d59541;
+		}

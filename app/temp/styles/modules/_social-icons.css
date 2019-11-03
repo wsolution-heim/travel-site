@@ -1,0 +1,32 @@
+.social-icons {
+	text-align: center;
+}
+
+	.social-icons__icon {
+		background-color: #d59541;
+		display: inline-block;
+		margin: 0 5px 5px 5px;
+		width: 33%;
+		height: 72px;
+		position: relative;
+	}
+
+	@media (min-width: 530px) {
+
+	.social-icons__icon {
+			width: 72px;
+			margin: 0 5px
+	}
+		}
+
+	/* mit display: block werden alle Elemente in einer Reihe aufgelistet, mit display: inline-block kann jemdem Element eine eigene Hoehe gegeben werden */
+
+	.social-icons__icon .icon {
+			display: block;
+			/* wenn dieser block position absolute hat, muss das Elternteil relative haben */
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/* transform translate() == für die position - 50% der eigenen höhe und breite*/
+			transform: translate(-50%, -50%);
+		}
