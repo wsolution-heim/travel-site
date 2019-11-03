@@ -54,4 +54,8 @@
 			font-size: 1rem;
 			background-color: transparent
 	}
+
+			.primary-nav a.is-current-link {
+				color: #fabb69;
+			}
 		}

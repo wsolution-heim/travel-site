@@ -15,7 +15,12 @@ $mainOrange: #d59541;
 	}
 
 		@media (--medium-viewport) {
-		background-color: rgba($mainBlue, .3);
+			position: fixed;
+			background-color: rgba($mainBlue, .3);
+			
+			&--dark {
+				background-color: rgba(23,51,72, .85);
+			}
 		}
 
 
@@ -35,10 +40,16 @@ $mainOrange: #d59541;
 		transform: translateX(-50%) scale(0.8);
 		/* Perfekt in der Mite horizontal und vertikal 50% 50% */
 		transform-origin: 50% 0%;  
+		transition: transform .3s ease-out;
 
 			@media (--medium-viewport) {
 				left: auto;
 				transform: translateX(0);
+
+				/* & steht für das Logo - Regel greift nur wenn site-header-dard verwendet wird */
+				.site-header--dark & {
+					transform: scale(0.57);
+				}
 			}
 
 	}
