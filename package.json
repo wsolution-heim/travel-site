@@ -6,7 +6,7 @@
     "watch": "gulp watch"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-smooth-scroll": "^2.2.0",
     "postcss-clear-fix": "^1.0.1",
     "postcss-custom-media": "^7.0.8",
